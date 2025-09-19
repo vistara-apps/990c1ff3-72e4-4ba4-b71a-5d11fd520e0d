@@ -1,0 +1,14 @@
+{
+  "name": "TripSharer",
+  "description": "TripSharer is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://990c1ff3-72e4-4ba4-b71a-5d11fd520e0d.vercel.app",
+  "properties": {
+    "app": {
+      "name": "TripSharer",
+      "description": "TripSharer is a Base Mini App built with Zara.",
+      "url": "https://990c1ff3-72e4-4ba4-b71a-5d11fd520e0d.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
