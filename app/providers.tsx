@@ -1,21 +1,26 @@
 'use client';
 
-import { MiniKitProvider } from '@coinbase/minikit';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
-import { base } from 'wagmi/chains';
+import { base } from 'viem/chains';
+import { useEffect, useState } from 'react';
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <>{children}</>;
+  }
+
   return (
-    <MiniKitProvider
-      chain={base}
+    <OnchainKitProvider
       apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY || ''}
+      chain={base as any}
     >
-      <OnchainKitProvider
-        apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY || ''}
-        chain={base}
-      >
-        {children}
-      </OnchainKitProvider>
-    </MiniKitProvider>
+      {children}
+    </OnchainKitProvider>
   );
 }
