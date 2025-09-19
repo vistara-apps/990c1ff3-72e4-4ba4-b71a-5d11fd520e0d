@@ -1,0 +1,32 @@
+{
+  "name": "990c1ff3-72e4-4ba4-b71a-5d11fd520e0d",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@coinbase/onchainkit": "^1.0.2",
+    "@wagmi/connectors": "^5.10.0",
+    "@wagmi/core": "^2.21.0",
+    "next": "15.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "viem": "^2.37.6",
+    "wagmi": "^2.17.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
