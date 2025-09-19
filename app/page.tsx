@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useMiniKit } from '@coinbase/minikit';
 import { FrameHeader } from '../components/FrameHeader';
 import { TripDashboard } from '../components/TripDashboard';
 import { CreateTripModal } from '../components/CreateTripModal';
@@ -11,7 +10,14 @@ import { Plus, Users } from 'lucide-react';
 import type { Trip, User, Expense } from '../lib/types';
 
 export default function HomePage() {
-  const { context } = useMiniKit();
+  // Mock MiniKit context for now
+  const mockContext = {
+    user: {
+      fid: 123,
+      displayName: 'Demo User',
+      custody: '0x1234567890abcdef'
+    }
+  };
   const [currentTrip, setCurrentTrip] = useState<Trip | null>(null);
   const [showCreateTrip, setShowCreateTrip] = useState(false);
   const [showAddExpense, setShowAddExpense] = useState(false);
@@ -21,10 +27,10 @@ export default function HomePage() {
 
   // Mock user data from MiniKit context
   const currentUser: User = {
-    userId: context?.user?.fid?.toString() || 'user-1',
-    farcasterId: context?.user?.fid || 1,
-    displayName: context?.user?.displayName || 'Anonymous',
-    walletAddress: context?.user?.custody || '0x...',
+    userId: mockContext?.user?.fid?.toString() || 'user-1',
+    farcasterId: mockContext?.user?.fid || 1,
+    displayName: mockContext?.user?.displayName || 'Anonymous',
+    walletAddress: mockContext?.user?.custody || '0x...',
   };
 
   useEffect(() => {
@@ -166,3 +172,6 @@ export default function HomePage() {
     </div>
   );
 }
+
+// Force dynamic rendering to avoid static generation issues
+export const dynamic = 'force-dynamic';
